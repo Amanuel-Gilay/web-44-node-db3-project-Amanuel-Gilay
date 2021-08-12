@@ -91,6 +91,31 @@ function findById(scheme_id) { // EXERCISE B
   */
 }
 
+// const rows = await db('schemes as sc')
+// .leftjoin(`steps as st`, `sc.scheme_id, st.scheme_id`)
+// .where(`sc.scheme_id`,scheme_id)
+// .count(`st.step_id as number_of_steps`)
+// .orderBy(`st.step_number`)
+
+// const result = {
+//   scheme_id: rows[0].scheme_id,
+//   scheme_name: rows[0].scheme_name,
+//   steps: []
+// }
+
+// rows.foreach(row =>{
+//   if(row.step.id) {
+//     result.step.push({
+//       step_id: row.step.id,
+//       step_number: row.step_number,
+//       instructions: row.instructions,
+//     })
+//   }
+// })
+// return result
+
+
+
 function findSteps(scheme_id) { // EXERCISE C
   /*
     1C- Build a query in Knex that returns the following data.
