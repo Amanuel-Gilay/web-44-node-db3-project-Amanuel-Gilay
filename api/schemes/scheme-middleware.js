@@ -6,7 +6,22 @@
     "message": "scheme with scheme_id <actual id> not found"
   }
 */
-const checkSchemeId = (req, res, next) => {
+const checkSchemeId = async (req, res, next) => {
+  try {
+    const existing = await db('shemas')
+         .where('sheme_id', req.params.scheme_id)
+         .first()
+         if (!existing){
+           next({
+             status: 404,
+             message:`sheme with scheme_id ${req.params.scheme_id} not found`
+           })
+         }else {
+            next()
+         }
+  }catch (err) {
+    next(err)
+  }
 
 }
 
